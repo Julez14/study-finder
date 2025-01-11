@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
+import Link from "next/link";
 
 // Sample course data
 const courses = [
@@ -54,24 +55,23 @@ export default function Dashboard() {
       {/* Course Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {filteredCourses.map((course) => (
-          <Card
-            key={course.id}
-            className="bg-zinc-900 border-none p-4 flex items-center gap-4 rounded-2xl"
-          >
-            <div className="h-12 w-12 rounded-full bg-blue-100 flex-shrink-0 overflow-hidden">
-              <img
-                src={course.avatar}
-                alt=""
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="flex flex-col">
-              <h2 className="text-white font-semibold text-lg">
-                {course.code}
-              </h2>
-              <p className="text-gray-400 text-sm">{course.progress}</p>
-            </div>
-          </Card>
+          <Link key={course.id} href={`/MapView`}>
+            <Card className="bg-zinc-900 border-none p-4 flex items-center gap-4 rounded-2xl hover:bg-zinc-800 transition-colors cursor-pointer">
+              <div className="h-12 w-12 rounded-full bg-blue-100 flex-shrink-0 overflow-hidden">
+                <img
+                  src={course.avatar}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col">
+                <h2 className="text-white font-semibold text-lg">
+                  {course.code}
+                </h2>
+                <p className="text-gray-400 text-sm">{course.progress}</p>
+              </div>
+            </Card>
+          </Link>
         ))}
       </div>
     </div>

@@ -1,0 +1,49 @@
+.spots-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spot-item {
+  padding: 15px;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  position: relative;
+  cursor: pointer;
+}
+
+.spot-item:hover {
+  background-color: #333;
+}
+
+.spot-name {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.spot-times {
+  font-size: 12px;
+  color: #888;
+}
+
+.status-indicator {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.available .status-indicator {
+  background-color: #4caf50;
+}
+
+.unavailable .status-indicator {
+  background-color: #f44336;
+}
+
+.upcoming .status-indicator {
+  background-color: #ffc107;
+}
