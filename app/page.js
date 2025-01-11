@@ -4,8 +4,10 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-
+import dynamic from "next/dynamic";
 // Sample course data
+
+const Map = dynamic(() => import("../app/Map"), { ssr: false });
 const courses = [
   {
     id: 1,
@@ -13,6 +15,7 @@ const courses = [
     progress: "# of Groups",
     avatar:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-11%20at%202.36.18%E2%80%AFPM-hXCqH9wvyrREP6CoU1W8YxOABZMUFj.png",
+    location: [-90.5 ,40],
   },
   {
     id: 2,
@@ -20,6 +23,7 @@ const courses = [
     progress: "6/15",
     avatar:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-11%20at%202.36.18%E2%80%AFPM-hXCqH9wvyrREP6CoU1W8YxOABZMUFj.png",
+    location: [-75.5 ,41],
   },
   {
     id: 3,
@@ -27,15 +31,21 @@ const courses = [
     progress: "3/15",
     avatar:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-11%20at%202.36.18%E2%80%AFPM-hXCqH9wvyrREP6CoU1W8YxOABZMUFj.png",
+      location: [-76.5 ,42],
   },
 ];
 
 export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCourse, setSelectedCourse] = useState(null);
 
   const filteredCourses = courses.filter((course) =>
     course.code.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const handleCourseClick = (course) => {
+    setSelectedCourse(course);
+  };
 
   return (
     <div className="min-h-screen bg-black p-4 md:p-8">
@@ -57,6 +67,7 @@ export default function Dashboard() {
           <Card
             key={course.id}
             className="bg-zinc-900 border-none p-4 flex items-center gap-4 rounded-2xl"
+            onClick={() => handleCourseClick(course)}
           >
             <div className="h-12 w-12 rounded-full bg-blue-100 flex-shrink-0 overflow-hidden">
               <img
@@ -74,6 +85,12 @@ export default function Dashboard() {
           </Card>
         ))}
       </div>
+      {/* Map */}
+      {selectedCourse &&( 
+        <div className = "mt-8">
+        <Map center={selectedCourse.location} zoom={15} />
+        </div>
+      )}
     </div>
   );
 }
