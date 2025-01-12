@@ -21,7 +21,7 @@ const buildings = [
   },
   {
     id: 3,
-    name: "Degrotte School of business",
+    name: "Degrotte School of Business",
     status: false,
     location: [-79.916477, 43.263917],
   },
@@ -39,7 +39,7 @@ const buildings = [
   },
   {
     id: 6,
-    name: "Information Technology Building ",
+    name: "Information Technology Building",
     status: false,
     location: [-79.920956, 43.258867],
   },
@@ -63,7 +63,7 @@ const buildings = [
   },
   {
     id: 10,
-    name: "Mcmaster divinity college",
+    name: "Mcmaster Divinity College",
     status: false,
     location: [-79.91799, 43.26186],
   },

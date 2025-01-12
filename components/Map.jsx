@@ -48,7 +48,7 @@ const Map = ({ buildings }) => {
               new mapboxgl.Popup().setHTML(`
                 <h3>${building.name}</h3>
                 <p>Status: ${
-                  building.status ? " Rooms Available" : "No Rooms"
+                  building.status ? " Sessions Available" : "No Sessions"
                 }</p>
               `)
             )
