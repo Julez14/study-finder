@@ -3,7 +3,8 @@ import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./Map.css";
 
-mapboxgl.accessToken = "your_mapbox_access_token";
+mapboxgl.accessToken =
+  "pk.eyJ1Ijoicm9uZWV0dG9waXdhbGEiLCJhIjoiY201c2toZmU4MDlscDJpcHdyazkwaTM3biJ9.udysslYRCmierKF_mYbmLw";
 
 const Map = () => {
   const mapContainer = useRef(null);
@@ -14,9 +15,9 @@ const Map = () => {
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/dark-v10",
-      center: [-80.54, 43.47], // Adjust these coordinates for your location
-      zoom: 15,
+      style: "mapbox://styles/roneettopiwala/cm5stz138006q01rs5p9k6l55",
+      center: [-79.918476, 43.261129], // Adjust these coordinates for your location
+      zoom: 15.5,
       pitch: 45,
     });
 
