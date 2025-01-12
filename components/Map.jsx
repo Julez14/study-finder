@@ -11,41 +11,25 @@ const Map = () => {
   const map = useRef(null);
 
   useEffect(() => {
-    console.log("Container ref:", mapContainer.current);
-    if (!mapContainer.current) return;
     if (map.current) return;
 
-    try {
-      console.log("Initializing map...");
-      map.current = new mapboxgl.Map({
-        container: mapContainer.current,
-        style: "mapbox://styles/mapbox/dark-v11",
-        center: [-79.918476, 43.261129],
-        zoom: 15.5,
-        pitch: 45,
-      });
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: "mapbox://styles/roneettopiwala/cm5stz138006q01rs5p9k6l55",
+      center: [-79.918476, 43.261129], // Adjust these coordinates for your location
+      zoom: 15.5,
+      pitch: 65,
+      bearing: 120,
+    });
 
-      console.log("Map initialized:", map.current);
+    // Add navigation controls
+    map.current.addControl(new mapboxgl.NavigationControl());
 
-      map.current.addControl(new mapboxgl.NavigationControl());
-    } catch (error) {
-      console.error("Error initializing map:", error);
-    }
-
-    return () => map.current?.remove();
+    // Clean up on unmount
+    return () => map.current.remove();
   }, []);
 
-  return (
-    <div
-      ref={mapContainer}
-      className="map-container"
-      style={{
-        width: "100%",
-        height: "100%",
-        backgroundColor: "red",
-      }}
-    />
-  );
+  return <div ref={mapContainer} className="map-container" />;
 };
 
 export default Map;

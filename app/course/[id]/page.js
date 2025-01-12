@@ -20,31 +20,6 @@ export default function CoursePage({ params }) {
     getParams();
   }, [params]);
 
-  // Fetch course data once ID is available
-  useEffect(() => {
-    if (id) {
-      // Simulate fetching course-specific data
-      const fetchData = async () => {
-        const mockData = {
-          id,
-          code: `Course ${id}`,
-          description: `This is a description for Course ${id}.`,
-          groups: [
-            { id: 1, name: "Group A", members: 5 },
-            { id: 2, name: "Group B", members: 3 },
-          ],
-        };
-        setCourseData(mockData);
-      };
-
-      fetchData();
-    }
-  }, [id]);
-
-  if (!id || !courseData) {
-    return <div className="text-white">Loading...</div>;
-  }
-
   return (
     <main className="flex h-screen w-screen bg-zinc-950">
       {/* Left Panel */}
@@ -71,7 +46,7 @@ export default function CoursePage({ params }) {
       </div>
 
       {/* Right Panel - Map */}
-      <div className="flex-1 relative">
+      <div className="flex-1">
         <Map />
       </div>
     </main>
