@@ -40,7 +40,7 @@ export default function CoursePage({ params }) {
               />
             </svg>
           </div>
-          <h1 className="text-2xl font-semibold text-white">spots</h1>
+          <h1 className="text-2xl font-semibold text-white">GeoStudy</h1>
         </div>
         <SpotsList />
       </div>

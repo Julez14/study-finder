@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import Link from "next/link";
 
 // Sample course data
 const courses = [
@@ -44,14 +43,18 @@ export default function Dashboard() {
     <div className="min-h-screen bg-black p-4 md:p-8">
       {/* Search Bar */}
       <div className="relative mb-8 max-w-3xl mx-auto">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-5 w-5" />
-        <Input
-          type="search"
-          placeholder="Search"
-          className="w-full pl-10 h-14 bg-gray-100 border-none text-lg rounded-full"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+        <div className="flex gap-4 items-center">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-5 w-5" />
+            <Input
+              type="search"
+              placeholder="Search"
+              className="w-full pl-10 h-14 bg-gray-100 border-none text-lg rounded-full"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Course Grid */}

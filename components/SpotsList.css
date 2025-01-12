@@ -7,9 +7,10 @@
 .spot-item {
   padding: 15px;
   border-radius: 4px;
-  background-color: #2a2a2a;
   position: relative;
   cursor: pointer;
+  color: #ffffff;
+  background-color: #232323;
 }
 
 .spot-item:hover {
@@ -19,6 +20,11 @@
 .spot-name {
   font-size: 14px;
   margin-bottom: 4px;
+  color: #ffffff;
+}
+
+.spot-name-text {
+  color: #ffffff;
 }
 
 .spot-times {
