@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Search, Plus, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 
 // Sample course data (You can replace it with actual dynamic data)
 const initialCourses = [
