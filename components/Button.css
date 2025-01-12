@@ -1,0 +1,27 @@
+.add-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-button:hover {
+  background-color: #16a34a;
+}
+
+.add-button:active {
+  background-color: #15803d;
+}
+
+.plus-icon {
+  font-size: 16px;
+  font-weight: bold;
+}

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import SpotsList from "@/components/SpotsList";
 import Map from "@/components/Map";
+import Button from "@/components/Button";
 
 export default function CoursePage({ params }) {
   const router = useRouter();
@@ -48,6 +49,7 @@ export default function CoursePage({ params }) {
       {/* Right Panel - Map */}
       <div className="flex-1">
         <Map />
+        <Button onClick={() => router.push("/add")}>Add New Spot</Button>
       </div>
     </main>
   );
