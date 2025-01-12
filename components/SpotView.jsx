@@ -1,3 +1,5 @@
+// DEPRECIATED
+
 import React, { useState, useContext } from "react";
 import SpotsList from "./SpotsList";
 import SpotInfo from "./SpotInfo";

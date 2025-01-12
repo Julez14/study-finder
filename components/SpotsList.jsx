@@ -1,8 +1,10 @@
-import React, { useContext, createContext } from "react";
+import React, { useContext, createContext, useState } from "react";
 import "./SpotsList.css";
+import JoinSpot from "./JoinSpot";
 
 const SpotsList = ({ onSpotSelect }) => {
   const SpotContext = createContext();
+  const [selectedSpot, setSelectedSpot] = useState(null);
 
   const spots = [
     {
@@ -25,7 +27,7 @@ const SpotsList = ({ onSpotSelect }) => {
         <div
           key={spot.id}
           className={`spot-item ${spot.status}`}
-          onClick={() => onSpotSelect}
+          onClick={() => setSelectedSpot(spot)}
         >
           <SpotContext.Provider value={{ spot }}>
             <div className="spot-name">
@@ -44,6 +46,13 @@ const SpotsList = ({ onSpotSelect }) => {
           </SpotContext.Provider>
         </div>
       ))}
+
+      {selectedSpot && (
+        <JoinSpot
+          spotName={selectedSpot.name}
+          onClose={() => setSelectedSpot(null)}
+        />
+      )}
     </div>
   );
 };
