@@ -2,28 +2,30 @@ import React, { useContext, createContext, useState } from "react";
 import "./SpotsList.css";
 import JoinSpot from "./JoinSpot";
 
-const SpotsList = ({ onSpotSelect }) => {
+const SpotsList = () => {
   const SpotContext = createContext();
   const [selectedSpot, setSelectedSpot] = useState(null);
-
-  const spots = [
+  const [spots, setSpots] = useState([
     {
       id: "1",
       name: "Epic Study Session",
       status: true,
       times: ["4:20 PM - 9:00 PM"],
+      participants: ["Emma Wilson", "James Lee", "Sofia Garcia"],
     },
     {
       id: "2",
       name: "Come study with me!",
       status: true,
       times: ["4:20 PM - 10:00 PM"],
+      participants: ["Lucas Chen", "Isabella Martinez", "Oliver Kim"],
     },
     {
       id: "3",
       name: "super cool study session",
       status: true,
       times: ["4:20 PM - 10:00 PM"],
+      participants: ["Ava Patel", "Noah Thompson", "Mia Wong"],
     },
     {
       id: "4",
@@ -67,7 +69,27 @@ const SpotsList = ({ onSpotSelect }) => {
       status: false,
       times: ["4:20 PM - 10:00 PM"],
     },
-  ];
+  ]);
+
+  const handleAddParticipant = (spotId, newParticipant) => {
+    const updatedSpots = spots.map((spot) => {
+      if (spot.id === spotId) {
+        const updatedParticipants = [
+          ...(spot.participants || []),
+          newParticipant,
+        ];
+        return {
+          ...spot,
+          participants: updatedParticipants,
+          status: updatedParticipants.length > 0,
+        };
+      }
+      return spot;
+    });
+    setSpots(updatedSpots);
+    const updatedSelectedSpot = updatedSpots.find((spot) => spot.id === spotId);
+    setSelectedSpot(updatedSelectedSpot);
+  };
 
   return (
     <div className="spots-list">
@@ -100,6 +122,10 @@ const SpotsList = ({ onSpotSelect }) => {
           spotName={selectedSpot.name}
           onClose={() => setSelectedSpot(null)}
           spotStatus={selectedSpot.status}
+          participants={selectedSpot.participants || []}
+          onAddParticipant={(newName) =>
+            handleAddParticipant(selectedSpot.id, newName)
+          }
         />
       )}
     </div>

@@ -74,7 +74,6 @@ export default function CoursePage({ params }) {
   const [id, setId] = useState(null);
   const [courseData, setCourseData] = useState(null);
 
-  // Unwrap params asynchronously
   useEffect(() => {
     async function getParams() {
       const unwrappedParams = await params;
