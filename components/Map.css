@@ -1,6 +1,7 @@
 .map-container {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .mapboxgl-map {
@@ -10,4 +11,49 @@
 
 .parent-container {
   height: 100vh;
+}
+
+.route-info {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  z-index: 1;
+  min-width: 250px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.route-info h3 {
+  margin: 0 0 15px 0;
+  color: #1a1a1a;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-bottom: 2px solid #3366ff;
+  padding-bottom: 8px;
+}
+
+.route-info p {
+  margin: 8px 0;
+  color: #4a4a4a;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.route-info p:before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #3366ff;
+  border-radius: 50%;
+}
+
+.marker {
+  cursor: pointer;
 }
