@@ -74,9 +74,9 @@ export default function Dashboard() {
         },
         body: JSON.stringify({
           name: formData.get("name"), // Course Code
-          location: selectedLocation,  // Selected Location
-          room: roomNumber,            // Room Number
-          people: 1,                   // Initially the user who created the group
+          location: selectedLocation, // Selected Location
+          room: roomNumber, // Room Number
+          people: 1, // Initially the user who created the group
         }),
       });
 
@@ -101,7 +101,9 @@ export default function Dashboard() {
         });
 
         // If course doesn't exist in the courses state, add it
-        const courseExists = updatedCourses.some(course => course.code === newCourseCode);
+        const courseExists = updatedCourses.some(
+          (course) => course.code === newCourseCode
+        );
         if (!courseExists) {
           updatedCourses.push({
             id: updatedCourses.length + 1, // Generate unique ID for new course
@@ -120,9 +122,9 @@ export default function Dashboard() {
 
       setModalVisible(false);
       e.target.reset(); // Reset form
-      setError("");  // Clear any previous errors
+      setError(""); // Clear any previous errors
     } catch (err) {
-      setError(err.message);  // Display the error message returned from the backend
+      setError(err.message); // Display the error message returned from the backend
     }
   };
 
@@ -131,8 +133,12 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto px-4 py-8 md:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2 text-center">Study Crawl</h1>
-          <p className="text-zinc-400 text-center">Plan out your journey of knowledge</p>
+          <h1 className="text-3xl font-bold text-white mb-2 text-center">
+            Study Crawl
+          </h1>
+          <p className="text-zinc-400 text-center">
+            Plan out your journey of knowledge
+          </p>
         </div>
 
         {/* Search and Add Group Section */}
@@ -185,10 +191,11 @@ export default function Dashboard() {
                         }}
                       />
                     </div>
-                    <span className="text-sm text-zinc-400">{course.progress} groups</span>
+                    <span className="text-sm text-zinc-400">
+                      {course.progress} groups
+                    </span>
                   </div>
                 </div>
-                
               </div>
             </Card>
           ))}
@@ -200,7 +207,9 @@ export default function Dashboard() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
           <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-xl shadow-xl w-full max-w-lg m-4">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold text-white">Create Study Group</h2>
+              <h2 className="text-xl font-semibold text-white">
+                Create Study Group
+              </h2>
               <Button
                 variant="ghost"
                 size="icon"
@@ -234,7 +243,9 @@ export default function Dashboard() {
                     required
                     className="w-full bg-zinc-800 border-zinc-700 text-white rounded-lg p-2"
                   >
-                    <option value="" disabled>Select Location</option>
+                    <option value="" disabled>
+                      Select Location
+                    </option>
                     <option value="Location A">Location A</option>
                     <option value="Location B">Location B</option>
                     <option value="Location C">Location C</option>
@@ -254,9 +265,7 @@ export default function Dashboard() {
                   />
                 </div>
               </div>
-              {error && (
-                <p className="text-red-400 text-sm mt-2">{error}</p>
-              )}
+              {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
               <div className="flex justify-end gap-3 mt-6">
                 <Button
                   type="button"
@@ -278,5 +287,5 @@ export default function Dashboard() {
         </div>
       )}
     </div>
-  )
+  );
 }
