@@ -246,9 +246,24 @@ export default function Dashboard() {
                     <option value="" disabled>
                       Select Location
                     </option>
-                    <option value="Location A">Location A</option>
-                    <option value="Location B">Location B</option>
-                    <option value="Location C">Location C</option>
+                    <option value="Location A">Burke Science Building</option>
+                    <option value="Location B">
+                      Degrotte School of Business"
+                    </option>
+                    <option value="Location C">E.T. Clarke Centre</option>
+                    <option value="Location B">Health Science Library</option>
+                    <option value="Location A">
+                      Information Technology Building
+                    </option>
+                    <option value="Location C">
+                      McLennan Physical Laboratories
+                    </option>
+                    <option value="Location A">
+                      McMaster Divinity College
+                    </option>
+                    <option value="Location B">Nuclear Reactor</option>
+                    <option value="Location C">Peter George</option>
+                    <option value="Location C">Psychology Building</option>
                   </select>
                 </div>
                 <div>

@@ -85,6 +85,13 @@ h3 {
   cursor: pointer;
 }
 
-.join-form button:hover {
+.join-form button:disabled {
+  background-color: #1a1a1a;
+  color: #666;
+  cursor: not-allowed;
+  border: 1px solid #333;
+}
+
+.join-form button:hover:not(:disabled) {
   background-color: #45a049;
 }

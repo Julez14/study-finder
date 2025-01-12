@@ -118,7 +118,7 @@ const Map = ({ buildings }) => {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/roneettopiwala/cm5sv19i300do01s31cs24ege",
-      center: [-79.918476, 43.261129],
+      center: [-79.918476, 43.261129], // Adjust these coordinates for your location
       zoom: 16,
       pitch: 65,
       bearing: 120,
@@ -135,7 +135,9 @@ const Map = ({ buildings }) => {
             .setPopup(
               new mapboxgl.Popup().setHTML(`
                 <h3>${building.name}</h3>
-                <p>Status: ${building.status ? "Rooms Available" : "No Rooms"}</p>
+                <p>Status: ${
+                  building.status ? " Rooms Available" : "No Rooms"
+                }</p>
               `)
             )
             .addTo(map.current);
