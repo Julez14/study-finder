@@ -88,7 +88,10 @@ export default function CoursePage({ params }) {
       {/* Left Panel */}
       <div className="w-[400px] bg-zinc-900 p-6 overflow-y-auto border-r border-zinc-800">
         <div className="flex items-center gap-3 mb-8">
-          <div className="h-8 w-8">
+          <div
+            className="h-8 w-8 cursor-pointer"
+            onClick={() => router.push("/")}
+          >
             <svg
               viewBox="0 0 24 24"
               className="text-white w-full h-full"

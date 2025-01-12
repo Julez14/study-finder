@@ -10,13 +10,61 @@ const SpotsList = ({ onSpotSelect }) => {
     {
       id: "1",
       name: "Epic Study Session",
-      status: "available",
+      status: true,
       times: ["4:20 PM - 9:00 PM"],
     },
     {
       id: "2",
       name: "Come study with me!",
-      status: "unavailable",
+      status: true,
+      times: ["4:20 PM - 10:00 PM"],
+    },
+    {
+      id: "3",
+      name: "super cool study session",
+      status: true,
+      times: ["4:20 PM - 10:00 PM"],
+    },
+    {
+      id: "4",
+      name: "help me stop doomscrolling",
+      status: false,
+      times: ["4:20 PM - 10:00 PM"],
+    },
+    {
+      id: "5",
+      name: "Lets grind through assignments",
+      status: false,
+      times: ["4:20 PM - 10:00 PM"],
+    },
+    {
+      id: "6",
+      name: "Help me practice my presentation!",
+      status: false,
+      times: ["4:20 PM - 10:00 PM"],
+    },
+    {
+      id: "7",
+      name: "Work and yap",
+      status: false,
+      times: ["4:20 PM - 10:00 PM"],
+    },
+    {
+      id: "8",
+      name: "Stop rotting in bed, come study",
+      status: false,
+      times: ["4:20 PM - 10:00 PM"],
+    },
+    {
+      id: "9",
+      name: "VERY PRODUCTIVE!!!",
+      status: false,
+      times: ["4:20 PM - 10:00 PM"],
+    },
+    {
+      id: "10",
+      name: "A normal study session",
+      status: false,
       times: ["4:20 PM - 10:00 PM"],
     },
   ];
@@ -26,7 +74,7 @@ const SpotsList = ({ onSpotSelect }) => {
       {spots.map((spot) => (
         <div
           key={spot.id}
-          className={`spot-item ${spot.status}`}
+          className={`spot-item ${spot.status ? "available" : "unavailable"}`}
           onClick={() => setSelectedSpot(spot)}
         >
           <SpotContext.Provider value={{ spot }}>
@@ -51,6 +99,7 @@ const SpotsList = ({ onSpotSelect }) => {
         <JoinSpot
           spotName={selectedSpot.name}
           onClose={() => setSelectedSpot(null)}
+          spotStatus={selectedSpot.status}
         />
       )}
     </div>

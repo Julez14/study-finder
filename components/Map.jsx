@@ -30,8 +30,8 @@ const Map = ({ buildings }) => {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/roneettopiwala/cm5sv19i300do01s31cs24ege",
-      center: [-79.918476, 43.261129], // Adjust these coordinates for your location
-      zoom: 16,
+      center: [-79.918406, 43.261629], // Adjust these coordinates for your location
+      zoom: 15.8,
       pitch: 65,
       bearing: 120,
     });

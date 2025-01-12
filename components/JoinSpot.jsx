@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./JoinSpot.css";
 
-const JoinSpot = ({ onClose, spotName }) => {
+const JoinSpot = ({ onClose, spotName, spotStatus }) => {
   const [participants, setParticipants] = useState([
     "Sarah Johnson",
     "Mike Chen",
@@ -10,7 +10,7 @@ const JoinSpot = ({ onClose, spotName }) => {
   const [newName, setNewName] = useState("");
 
   const handleJoin = () => {
-    if (newName.trim()) {
+    if (newName.trim() && spotStatus) {
       setParticipants([...participants, newName.trim()]);
       setNewName("");
     }
@@ -42,7 +42,9 @@ const JoinSpot = ({ onClose, spotName }) => {
             onChange={(e) => setNewName(e.target.value)}
             placeholder="Enter your name"
           />
-          <button onClick={handleJoin}>Join Session</button>
+          <button onClick={handleJoin} disabled={!spotStatus}>
+            Join Session
+          </button>
         </div>
       </div>
     </div>
