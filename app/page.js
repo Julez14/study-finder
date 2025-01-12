@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -32,6 +33,7 @@ const courses = [
 
 export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
 
   const filteredCourses = courses.filter((course) =>
     course.code.toLowerCase().includes(searchQuery.toLowerCase())
@@ -57,6 +59,7 @@ export default function Dashboard() {
           <Card
             key={course.id}
             className="bg-zinc-900 border-none p-4 flex items-center gap-4 rounded-2xl"
+            onClick={() => router.push(`/course/${course.id}`)}
           >
             <div className="h-12 w-12 rounded-full bg-blue-100 flex-shrink-0 overflow-hidden">
               <img
